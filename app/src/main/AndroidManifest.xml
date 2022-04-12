@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Occupath">
         <activity
+            android:name=".LiveTalkRoomActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateLiveTalkActivity"
+            android:exported="false" />
+        <activity
             android:name=".Chat"
             android:exported="false" />
         <activity

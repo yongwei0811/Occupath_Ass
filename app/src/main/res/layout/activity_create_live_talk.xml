@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CreateLiveTalkActivity">
+
+    <EditText
+        android:id="@+id/edit_LiveTalkTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Live Talk Title"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="20dp"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/edit_LiveTalkDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="start|top"
+        android:layout_marginHorizontal="20dp"
+        android:hint="Live Talk Description"
+        android:inputType="textMultiLine" />
+
+    <Spinner
+        android:id="@+id/spinner_Topic"
+        android:spinnerMode="dialog"
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/button_StartNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:text="Start Now" />
+
+</LinearLayout>
