@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="15dp"
+    android:layout_margin="10dp"
+    app:cardElevation="8dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_talkTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tech Talk"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_talkDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="This is a talk to explain about tech..."
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/text_hostUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="denisekhew"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/text_TopicName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tech"
+            android:textSize="12sp"
+            android:textStyle="italic" />
+
+        <Button
+            android:id="@+id/btn_Join"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:layout_gravity="right"
+            android:textColor="@color/white"
+            android:text="Join" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
