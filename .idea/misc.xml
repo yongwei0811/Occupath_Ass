@@ -11,11 +11,13 @@
         <entry key="..\:/Users/yongw/AndroidStudioProjects/Occupath/app/src/main/res/layout/activity_chat.xml" value="0.22" />
         <entry key="..\:/Users/yongw/AndroidStudioProjects/Occupath/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/yongw/AndroidStudioProjects/Occupath/app/src/main/res/layout/chat.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/yongw/AndroidStudioProjects/Occupath/app/src/main/res/layout/delete_layout.xml" value="0.1" />
         <entry key="..\:/Users/yongw/AndroidStudioProjects/Occupath/app/src/main/res/layout/fragment_dashboard.xml" value="0.1721014492753623" />
         <entry key="..\:/Users/yongw/AndroidStudioProjects/Occupath/app/src/main/res/layout/fragment_home.xml" value="0.1721014492753623" />
         <entry key="..\:/Users/yongw/AndroidStudioProjects/Occupath/app/src/main/res/layout/fragment_notifications.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/yongw/AndroidStudioProjects/Occupath/app/src/main/res/layout/messages_adapter_layout.xml" value="0.5" />
         <entry key="..\:/Users/yongw/AndroidStudioProjects/Occupath/app/src/main/res/layout/receive_msg.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/yongw/AndroidStudioProjects/Occupath/app/src/main/res/layout/send_msg.xml" value="0.1" />
+        <entry key="..\:/Users/yongw/AndroidStudioProjects/Occupath/app/src/main/res/layout/send_msg.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/yongw/AndroidStudioProjects/Occupath/app/src/main/res/menu/bottom_nav_menu.xml" value="0.184375" />
       </map>
     </option>
