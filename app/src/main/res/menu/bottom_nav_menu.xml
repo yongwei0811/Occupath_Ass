@@ -2,18 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
+        android:title="Feed"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:id="@+id/feedFragment" />
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
+        android:title="Live Talk"
+        android:icon="@drawable/ic_baseline_live_tv_24"
+        android:id="@+id/liveTalkFragment" />
 
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications" />
+        android:title="Chat"
+        android:icon="@drawable/ic_baseline_chat_24"
+        android:id="@+id/chatFragment" />
+
+    <item
+        android:title="User"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:id="@+id/userFragment" />
 
 </menu>
