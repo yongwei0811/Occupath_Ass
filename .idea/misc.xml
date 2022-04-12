@@ -3,10 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/yinan/OneDrive/Documents/BAIT2073 Mobile Application Development/Occupath_Ass/app/src/main/res/drawable/send_drawable.xml" value="0.1" />
-        <entry key="..\:/Users/yinan/OneDrive/Documents/BAIT2073 Mobile Application Development/Occupath_Ass/app/src/main/res/layout/login.xml" value="0.25" />
-        <entry key="..\:/Users/yinan/OneDrive/Documents/BAIT2073 Mobile Application Development/Occupath_Ass/app/src/main/res/layout/receive_msg.xml" value="0.25" />
-        <entry key="..\:/Users/yinan/OneDrive/Documents/BAIT2073 Mobile Application Development/Occupath_Ass/app/src/main/res/layout/send_msg.xml" value="0.17300724637681159" />
+        <entry key="..\:/AndroidProjects/Occupath_Ass/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2375" />
+        <entry key="..\:/AndroidProjects/Occupath_Ass/app/src/main/res/layout/activity_chat.xml" value="0.2078804347826087" />
+        <entry key="..\:/AndroidProjects/Occupath_Ass/app/src/main/res/layout/activity_main.xml" value="0.2078804347826087" />
+        <entry key="..\:/AndroidProjects/Occupath_Ass/app/src/main/res/layout/fragment_chat.xml" value="0.18795289855072464" />
+        <entry key="..\:/AndroidProjects/Occupath_Ass/app/src/main/res/layout/fragment_dashboard.xml" value="0.2078804347826087" />
+        <entry key="..\:/AndroidProjects/Occupath_Ass/app/src/main/res/layout/fragment_feed.xml" value="0.18795289855072464" />
+        <entry key="..\:/AndroidProjects/Occupath_Ass/app/src/main/res/layout/fragment_home.xml" value="0.2078804347826087" />
+        <entry key="..\:/AndroidProjects/Occupath_Ass/app/src/main/res/layout/fragment_live_talk.xml" value="0.18795289855072464" />
+        <entry key="..\:/AndroidProjects/Occupath_Ass/app/src/main/res/layout/fragment_notifications.xml" value="0.2078804347826087" />
+        <entry key="..\:/AndroidProjects/Occupath_Ass/app/src/main/res/layout/fragment_user.xml" value="0.18795289855072464" />
+        <entry key="..\:/AndroidProjects/Occupath_Ass/app/src/main/res/layout/receive_msg.xml" value="0.2078804347826087" />
+        <entry key="..\:/AndroidProjects/Occupath_Ass/app/src/main/res/menu/bottom_nav_menu.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/yongw/AndroidStudioProjects/Occupath/app/src/main/res/drawable/bottom_shape.xml" value="0.1175925925925926" />
         <entry key="..\:/Users/yongw/AndroidStudioProjects/Occupath/app/src/main/res/drawable/ic_attachment.xml" value="0.1" />
         <entry key="..\:/Users/yongw/AndroidStudioProjects/Occupath/app/src/main/res/drawable/receive_drawable.xml" value="0.1" />

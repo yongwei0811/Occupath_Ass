@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/feedFragment">
+
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="com.example.occupath.FeedFragment"
+        android:label="fragment_feed"
+        tools:layout="@layout/fragment_feed" />
+
+    <fragment
+        android:id="@+id/liveTalkFragment"
+        android:name="com.example.occupath.LiveTalkFragment"
+        android:label="fragment_live_talk"
+        tools:layout="@layout/fragment_live_talk" />
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.occupath.ChatFragment"
+        android:label="fragment_live_talk"
+        tools:layout="@layout/fragment_chat" />
+
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.occupath.UserFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user" />
+</navigation>
