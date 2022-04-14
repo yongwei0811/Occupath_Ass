@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "353057280767",
+    "project_id": "occupath-57628",
+    "storage_bucket": "occupath-57628.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353057280767:android:28cce8b1ad88e6eab932ca",
+        "android_client_info": {
+          "package_name": "com.example.occupath"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "353057280767-7vcbmeeq7q01qm0gmhrgjnhvid5i0ma6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrV3ZyIqNF2lZ8pLUxM43zIMsIzDOytUA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "353057280767-7vcbmeeq7q01qm0gmhrgjnhvid5i0ma6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353057280767:android:1e055c3ef38b33bbb932ca",
+        "android_client_info": {
+          "package_name": "com.example.occupathfeed"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "353057280767-7vcbmeeq7q01qm0gmhrgjnhvid5i0ma6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrV3ZyIqNF2lZ8pLUxM43zIMsIzDOytUA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "353057280767-7vcbmeeq7q01qm0gmhrgjnhvid5i0ma6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
