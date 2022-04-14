@@ -1,10 +1,18 @@
 package com.example.occupath
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
+import com.example.occupath.databinding.FragmentUserBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,20 +29,37 @@ class UserFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    //view binding
+    private lateinit var binding: FragmentUserBinding
+
+    //firebase auth
+    private lateinit var firebaseAuth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+        firebaseAuth = FirebaseAuth.getInstance()
+        loadUserInfo()
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user, container, false)
+        binding = FragmentUserBinding.inflate(layoutInflater,container,false)
+
+        //handle click, open edit profile
+        binding.profileEditBtn.setOnClickListener {
+            val intent = Intent(activity,ProfileEditActivity::class.java)
+            startActivity(intent)
+        }
+
+        return binding.root
     }
 
     companion object {
@@ -55,5 +80,35 @@ class UserFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    private fun loadUserInfo() {
+        val ref = FirebaseDatabase.getInstance().getReference("Users")
+        ref.child(firebaseAuth.uid!!)
+            .addValueEventListener(object: ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    //get user info
+                    val email = "${snapshot.child("email").value}"
+                    val name = "${snapshot.child("name").value}"
+                    val profileImage = "${snapshot.child("profileImage").value}"
+                    val uid = "${snapshot.child("uid").value}"
+
+                    //set data
+                    binding.nameTv.text = name
+                    binding.emailTv.text = email
+
+                    //set image
+                    try {
+                        Glide.with(this@UserFragment).load(profileImage).placeholder(R.drawable.ic_person_gray).into(binding.profileIv)
+                    }
+                    catch (e: Exception) {
+
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+            })
     }
 }

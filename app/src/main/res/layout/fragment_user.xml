@@ -5,10 +5,95 @@
     android:layout_height="match_parent"
     tools:context=".UserFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="user frag" />
+        android:background="@drawable/back01"
+        tools:context=".ProfileActivity">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="165dp"
+            android:background="@drawable/back02"
+            android:layout_marginTop="40dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@drawable/shape_toolbar02">
+
+            <TextView
+                android:id="@+id/toolbarTitleTv"
+                android:text="Profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_centerInParent="true"
+                android:textStyle="bold" />
+
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="180dp"
+            android:background="@drawable/shaper_rect01" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileIv"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="120dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_person_gray"
+            app:shapeAppearanceOverlay="@style/styleRoundedCornersImage" />
+
+        <TextView
+            android:id="@+id/nameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profileIv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Full Name"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/emailTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameTv"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            android:text="abc@example.com"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/emailTv"
+            android:gravity="center"
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/profileEditBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit Profile"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_button01"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </FrameLayout>
