@@ -3,28 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".LiveTalkFragment">
+    tools:context=".LiveTalkTopicFragment">
 
     <TextView
-        android:id="@+id/text_Discover"
+        android:id="@+id/text_TopicName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="15dp"
         android:layout_marginTop="10dp"
-        android:paddingBottom="10dp"
-        android:text="@string/discover_topics"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:text="Technology" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rec_view_discoverTopic"
-        android:layout_width="wrap_content"
+        android:id="@+id/rec_view_liveTalk"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginHorizontal="15dp"
-        tools:listitem="@layout/topic_cards"
+        tools:listitem="@layout/live_talk_cards"
         />
 
 </LinearLayout>
