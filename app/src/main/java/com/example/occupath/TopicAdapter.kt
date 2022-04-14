@@ -2,6 +2,7 @@ package com.example.occupath
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.occupath.databinding.TopicCardsBinding
 
@@ -9,6 +10,15 @@ class TopicAdapter(val topicList : List<Topic>) : RecyclerView.Adapter<TopicAdap
 
     class TopicViewHolder(private val binding: TopicCardsBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            binding.root.setOnClickListener{
+                val topic = binding.textTopicName.text.toString()
+                it.findNavController().navigate(LiveTalkFragmentDirections.actionLiveTalkFragmentToLiveTalkTopicFragment(topic))
+            }
+        }
+
+
         fun bindItem(topic: Topic) {
             binding.imageTopic.setImageResource(topic.image)
             binding.textTopicName.text = topic.topicName

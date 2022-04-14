@@ -1,6 +1,9 @@
 package com.example.occupath
 
 import android.os.Bundle
+import android.view.View
+import android.widget.ArrayAdapter
+import androidx.appcompat.app.ActionBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
@@ -25,8 +28,25 @@ class MainActivity : AppCompatActivity() {
 
         val bottomNav = binding.bottomNav
         val navController = Navigation.findNavController(this,R.id.hostFragment)
+        val appBarConfiguration = AppBarConfiguration(setOf(R.id.feedFragment, R.id.liveTalkFragment, R.id.chatFragment, R.id.userFragment))
+        setupActionBarWithNavController(navController, appBarConfiguration)
+
 
         NavigationUI.setupWithNavController(bottomNav, navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if(destination.id == R.id.liveTalkTopicFragment) {
+                //actionBar?.hide()
+                bottomNav.visibility = View.GONE
+            } else{
+                bottomNav.visibility = View.VISIBLE
+            }
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = this.findNavController(R.id.hostFragment)
+        return navController.navigateUp()
 
 
     }

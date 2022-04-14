@@ -16,7 +16,6 @@
             android:name=".CreateLiveTalkActivity"
             android:exported="false" />
         <activity
-            android:name=".Chat"
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
