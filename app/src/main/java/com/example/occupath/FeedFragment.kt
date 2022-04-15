@@ -1,10 +1,15 @@
 package com.example.occupath
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.Menu
+import android.view.MenuItem
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.occupath.databinding.FragmentFeedBinding
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,20 +26,69 @@ class FeedFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var binding: FragmentFeedBinding
+    private lateinit var feedArrayList : ArrayList<Post>
+    private lateinit var feedAdapter : new_adapter
+    //variable to use the firebase data feature
+    private lateinit var database : FirebaseFirestore
+    //arraylist to show post using the recycler view property
+    var post_list = ArrayList<Post>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        //enable options menu in this fragment
+        setHasOptionsMenu(true)
         super.onCreate(savedInstanceState)
+
+        feedArrayList = arrayListOf()
+        feedAdapter = new_adapter(feedArrayList)
+
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+        get_information()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_file, menu);
+
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return (when(item.itemId) {
+            R.id.new_post -> {
+                this.startActivity(Intent(requireContext(),PhotoSharingActivity::class.java))
+                true
+            }
+            else ->
+                super.onOptionsItemSelected(item)
+        })
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_feed, container, false)
+        //Inflate the layout for this fragment
+        binding = FragmentFeedBinding.inflate(layoutInflater,container,false)
+        binding.recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        binding.recyclerView.adapter = feedAdapter
+        binding.recyclerView.setHasFixedSize(true)
+        return binding.root
+    }
+
+    private fun get_information() {
+        database = FirebaseFirestore.getInstance()
+        database.collection("Post").orderBy("date",Query.Direction.DESCENDING).get().addOnSuccessListener { documents ->
+            for (document in documents){
+                val comment = document.get("comment") as String
+                val image = document.get("imageUrl") as String
+                feedArrayList.add(Post(comment, image))
+            }
+            feedAdapter.notifyDataSetChanged()
+        }
     }
 
     companion object {
