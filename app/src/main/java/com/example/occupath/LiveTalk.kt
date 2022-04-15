@@ -8,9 +8,11 @@ data class LiveTalk(
     val name : String?= null,
     val talkTitle : String? =null,
     val talkDesc : String?=null,
-    val topic : String?=null
+    val topic : String?=null,
+    val userImage : String?= null
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readString(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
@@ -25,6 +27,7 @@ data class LiveTalk(
         parcel.writeString(talkTitle)
         parcel.writeString(talkDesc)
         parcel.writeString(topic)
+        parcel.writeString(userImage)
     }
 
     override fun describeContents(): Int {

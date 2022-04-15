@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.navigation.findNavController
 import com.example.occupath.databinding.FragmentCreateLiveTalkBinding
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 import org.jitsi.meet.sdk.JitsiMeetActivity
 import org.jitsi.meet.sdk.JitsiMeetConferenceOptions
@@ -37,6 +38,7 @@ class CreateLiveTalkFragment : Fragment() {
 
         var name  = ""
         var email  = ""
+        var profileImage = ""
 
         firebaseAuth = FirebaseAuth.getInstance()
         val ref = FirebaseDatabase.getInstance().getReference("Users")
@@ -46,6 +48,7 @@ class CreateLiveTalkFragment : Fragment() {
                     //get user info
                     name = "${snapshot.child("name").value}"
                     email = "${snapshot.child("email").value}"
+                    profileImage = "${snapshot.child("profileImage").value}"
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -58,7 +61,9 @@ class CreateLiveTalkFragment : Fragment() {
             val talkTitle = binding.editLiveTalkTitle.text.toString()
             val talkDesc = binding.editLiveTalkDesc.text.toString()
             val topic = binding.spinnerTopic.selectedItem.toString()
-            val createdTime = com.google.firebase.Timestamp.now()
+            val createdTime = Timestamp.now()
+
+            val liveTalk = LiveTalk(email, name, talkTitle, talkDesc, topic, profileImage)
 
             when {
                 talkTitle.isEmpty() -> {  // check if talk title is empty
@@ -68,7 +73,7 @@ class CreateLiveTalkFragment : Fragment() {
                     Toast.makeText(activity,"Enter talk description",Toast.LENGTH_SHORT).show()
                 }
                 else -> {
-                    addToFirestore(email, name, talkTitle, talkDesc, topic, createdTime) // add live talk to firestore
+                    addToFirestore(liveTalk, createdTime) // add live talk to firestore
                     joinLiveTalk(talkTitle, name) // start new live talk room
                 }
             }
@@ -88,15 +93,16 @@ class CreateLiveTalkFragment : Fragment() {
         return binding.root
     }
 
-    fun addToFirestore(email:String,name:String,talkTitle:String,talkDesc:String,topic:String, createdTime : com.google.firebase.Timestamp){
+    fun addToFirestore(liveTalkDetails: LiveTalk, createdTime : Timestamp){
         db = FirebaseFirestore.getInstance()
 
         val liveTalk : MutableMap<String, Any> = HashMap()
-        liveTalk["email"] = email
-        liveTalk["name"] = name
-        liveTalk["talkTitle"] = talkTitle
-        liveTalk["talkDesc"] = talkDesc
-        liveTalk["topic"] = topic
+        liveTalk["email"] = liveTalkDetails.email.toString()
+        liveTalk["name"] = liveTalkDetails.name.toString()
+        liveTalk["talkTitle"] = liveTalkDetails.talkTitle.toString()
+        liveTalk["talkDesc"] = liveTalkDetails.talkDesc.toString()
+        liveTalk["topic"] = liveTalkDetails.topic.toString()
+        liveTalk["userImage"] = liveTalkDetails.userImage.toString()
         liveTalk["createdTime"] = createdTime
 
         db.collection("LiveTalk").add(liveTalk) // add new document in firestore

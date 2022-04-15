@@ -6,13 +6,13 @@ import androidx.navigation.NavDirections
 import androidx.recyclerview.widget.RecyclerView
 import com.example.occupath.databinding.LiveTalkCardsBinding
 import androidx.navigation.findNavController
+import com.bumptech.glide.Glide
 
 
 class LiveTalkAdapter(val liveTalkList : ArrayList<LiveTalk>) : RecyclerView.Adapter<LiveTalkAdapter.LiveTalkViewHolder>() {
 
-    class LiveTalkViewHolder(private val binding: LiveTalkCardsBinding) :
+    class LiveTalkViewHolder(val binding: LiveTalkCardsBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
 
         init {
             // recyclerview item is clicked
@@ -50,6 +50,10 @@ class LiveTalkAdapter(val liveTalkList : ArrayList<LiveTalk>) : RecyclerView.Ada
     override fun onBindViewHolder(holder: LiveTalkViewHolder, position: Int) {
         val liveTalk = liveTalkList[position]
         holder.bindItem(liveTalk)
+
+        Glide.with(holder.itemView)
+            .load(liveTalkList[position].userImage)
+            .into(holder.binding.imageUserProfile)
     }
 
     override fun getItemCount(): Int {

@@ -1,13 +1,11 @@
 package com.example.occupath
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.occupath.databinding.FragmentLiveTalkBinding
 import com.example.occupath.databinding.FragmentLiveTalkTopicBinding
 import com.google.firebase.firestore.*
 
@@ -47,13 +45,19 @@ class LiveTalkTopicFragment : Fragment() {
         db.collection("LiveTalk")
             .whereEqualTo("topic",topic)
             .orderBy("createdTime",Query.Direction.DESCENDING)  // latest created live talk is shown on top
-            .get()
-            .addOnSuccessListener { documents ->
-                for (document in documents) {
-                    liveTalkArrayList.add(document.toObject(LiveTalk::class.java))
-                }
+            .addSnapshotListener(object : EventListener<QuerySnapshot>{
+                override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
 
-                liveTalkAdapter.notifyDataSetChanged()
-            }
+
+                    for(dc : DocumentChange in value?.documentChanges!!){
+                        if(dc.type ==  DocumentChange.Type.ADDED){
+                            liveTalkArrayList.add(dc.document.toObject(LiveTalk::class.java))
+                        }
+                    }
+
+                    liveTalkAdapter.notifyDataSetChanged()
+                }
+            })
+
     }
 }

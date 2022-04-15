@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/feedFragment"
         android:name="com.example.occupath.FeedFragment"
-        android:label="fragment_feed"
+        android:label="Feed"
         tools:layout="@layout/fragment_feed" />
 
     <fragment
@@ -27,7 +27,7 @@
     <fragment
         android:id="@+id/chatFragment"
         android:name="com.example.occupath.ChatFragment"
-        android:label="fragment_live_talk"
+        android:label="Chat"
         tools:layout="@layout/fragment_chat" />
 
     <fragment
@@ -60,8 +60,7 @@
         <action
             android:id="@+id/action_liveTalkTopicFragment_to_liveTalkFragment"
             app:destination="@id/liveTalkFragment"
-            app:popUpTo="@id/liveTalkFragment"
-            app:popUpToInclusive="true" />
+            app:popUpTo="@id/liveTalkFragment" />
         <argument
             android:name="topic"
             app:argType="string" />

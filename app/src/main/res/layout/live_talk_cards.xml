@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,61 +10,86 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/text_talkTitle"
+        <ImageView
+            android:id="@+id/image_userProfile"
+            android:layout_gravity="center"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="15dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <LinearLayout
+            android:id="@+id/text_talkDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tech Talk"
-            android:textSize="18sp"
-            android:layout_marginBottom="5dp"
-            android:textStyle="bold" />
+            android:padding="10dp"
+            android:layout_gravity="center"
+            app:layout_constraintStart_toEndOf="@+id/image_userProfile"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/text_talkDesc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="This is a talk to explain about tech..."
-            android:layout_marginBottom="5dp"
-            android:textSize="16sp" />
+            <TextView
+                android:id="@+id/text_talkTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tech Talk"
+                android:textSize="16sp"
+                android:layout_marginBottom="5dp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/text_hostName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="denisekhew"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/text_talkDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="This is a talk to explain about tech..."
+                android:layout_marginBottom="5dp"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/text_hostEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="denisekhew"
-            android:textSize="14sp"
-            android:visibility="gone"/>
+            <TextView
+                android:id="@+id/text_hostName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mei Mei"
+                android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/text_topicName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Programming and Tech"
-            android:textSize="12sp"
-            android:textStyle="italic"
-            android:visibility="gone" />
+            <TextView
+                android:id="@+id/text_hostEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="meimei@gmail.com"
+                android:textSize="14sp"
+                android:visibility="gone"/>
 
-        <TextView
-            android:id="@+id/text_timeDesc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Currently live..."
-            android:textSize="12sp"
-            android:textStyle="italic" />
+            <TextView
+                android:id="@+id/text_topicName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Programming and Tech"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/text_timeDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Currently live..."
+                android:textSize="10sp"
+                android:textStyle="italic" />
+
+        </LinearLayout>
 
     </LinearLayout>
+
+
+
+
+
+
+
 
 </androidx.cardview.widget.CardView>
