@@ -28,13 +28,13 @@ class LiveTalkTopicFragment : Fragment() {
         binding.recViewLiveTalk.setHasFixedSize(true)
 
         // get selected topic from previous fragment
-   //     val args = LiveTalkTopicFragmentArgs.fromBundle(requireArguments())
-     //   val topic = args.topic
+        val args = LiveTalkTopicFragmentArgs.fromBundle(requireArguments())
+        val topic = args.topic
 
         // update the live talks related to topic in recyclerview
-     //   updateLiveTalk(topic)
+        updateLiveTalk(topic)
 
-    //    binding.textTopicName.text = topic
+        binding.textTopicName.text = topic
 
         return binding.root
     }

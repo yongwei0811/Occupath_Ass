@@ -15,9 +15,9 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Occupath">
-        <activity
-            android:name=".LatestMessagesActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".LatestMessagesActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".chatHist"
             android:exported="false" /> <!-- <activity -->

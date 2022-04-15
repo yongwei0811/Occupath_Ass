@@ -19,17 +19,17 @@ class LiveTalkRoomFragment : Fragment() {
         binding = FragmentLiveTalkRoomBinding.inflate(layoutInflater,container,false)
 
         // get live talk details from previous fragment
-       // val args = LiveTalkRoomFragmentArgs.fromBundle(requireArguments())
+        val args = LiveTalkRoomFragmentArgs.fromBundle(requireArguments())
 
-//        binding.textHostName.text = args.liveTalk.name.toString()
-//        binding.textTalkTitle.text = args.liveTalk.talkTitle.toString()
-//        binding.textTalkDesc.text = args.liveTalk.talkDesc.toString()
-//
-//        val topic = args.liveTalk.topic.toString()
+        binding.textHostName.text = args.liveTalk.name.toString()
+        binding.textTalkTitle.text = args.liveTalk.talkTitle.toString()
+        binding.textTalkDesc.text = args.liveTalk.talkDesc.toString()
+
+        val topic = args.liveTalk.topic.toString()
 
         // go back to topic page
         binding.btnBack.setOnClickListener(){
-        //    it.findNavController().navigate(LiveTalkRoomFragmentDirections.actionLiveTalkRoomFragmentToLiveTalkTopicFragment(topic))
+            it.findNavController().navigate(LiveTalkRoomFragmentDirections.actionLiveTalkRoomFragmentToLiveTalkTopicFragment(topic))
         }
 
         binding.btnJoin.setOnClickListener(){

@@ -87,7 +87,7 @@ class CreateLiveTalkFragment : Fragment() {
             }
 
             // go back to live talk fragment
-        //    it.findNavController().navigate(CreateLiveTalkFragmentDirections.actionCreateLiveTalkFragmentToLiveTalkFragment())
+            it.findNavController().navigate(CreateLiveTalkFragmentDirections.actionCreateLiveTalkFragmentToLiveTalkFragment())
         }
 
         return binding.root
