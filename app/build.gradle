@@ -4,6 +4,7 @@ plugins {
     //set the gradle extension setting
     id 'kotlin-android-extensions'
     id 'com.google.gms.google-services'  // Google Services plugin
+    id 'androidx.navigation.safeargs'
     id 'com.google.firebase.crashlytics'
 }
 

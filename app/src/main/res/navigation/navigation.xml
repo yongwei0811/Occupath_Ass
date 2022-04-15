@@ -14,8 +14,15 @@
     <fragment
         android:id="@+id/liveTalkFragment"
         android:name="com.example.occupath.LiveTalkFragment"
-        android:label="fragment_live_talk"
-        tools:layout="@layout/fragment_live_talk" />
+        android:label="Live Talk"
+        tools:layout="@layout/fragment_live_talk">
+        <action
+            android:id="@+id/action_liveTalkFragment_to_liveTalkTopicFragment"
+            app:destination="@id/liveTalkTopicFragment" />
+        <action
+            android:id="@+id/action_liveTalkFragment_to_createLiveTalkFragment"
+            app:destination="@id/createLiveTalkFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/chatFragment"
@@ -28,4 +35,44 @@
         android:name="com.example.occupath.UserFragment"
         android:label="fragment_user"
         tools:layout="@layout/fragment_user" />
+    <fragment
+        android:id="@+id/liveTalkRoomFragment"
+        android:name="com.example.occupath.LiveTalkRoomFragment"
+        android:label="Live Talk Room"
+        tools:layout="@layout/fragment_live_talk_room">
+        <action
+            android:id="@+id/action_liveTalkRoomFragment_to_liveTalkTopicFragment"
+            app:destination="@id/liveTalkTopicFragment"
+            app:popUpTo="@id/liveTalkTopicFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="liveTalk"
+            app:argType="com.example.occupath.LiveTalk" />
+    </fragment>
+    <fragment
+        android:id="@+id/liveTalkTopicFragment"
+        android:name="com.example.occupath.LiveTalkTopicFragment"
+        android:label="Live Talks"
+        tools:layout="@layout/fragment_live_talk_topic">
+        <action
+            android:id="@+id/action_liveTalkTopicFragment_to_liveTalkRoomFragment"
+            app:destination="@id/liveTalkRoomFragment" />
+        <action
+            android:id="@+id/action_liveTalkTopicFragment_to_liveTalkFragment"
+            app:destination="@id/liveTalkFragment"
+            app:popUpTo="@id/liveTalkFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="topic"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/createLiveTalkFragment"
+        android:name="com.example.occupath.CreateLiveTalkFragment"
+        android:label="Create Live Talk"
+        tools:layout="@layout/fragment_create_live_talk">
+        <action
+            android:id="@+id/action_createLiveTalkFragment_to_liveTalkFragment"
+            app:destination="@id/liveTalkFragment" />
+    </fragment>
 </navigation>
