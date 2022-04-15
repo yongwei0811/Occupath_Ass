@@ -11,6 +11,7 @@ class new_adapter(val post_list : ArrayList<Post>) : RecyclerView.Adapter<new_ad
 
         fun bindItem(post: Post){
             binding.recComment.text = post.comment
+            binding.recName.text = post.name
             Picasso.get().load(post.image).into(binding.recImg)
         }
     }

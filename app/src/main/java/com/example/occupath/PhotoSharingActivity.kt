@@ -15,6 +15,10 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_photo_sharing.*
@@ -53,6 +57,25 @@ class PhotoSharingActivity : AppCompatActivity() {
         val reference = storage.reference
         //create an image reference variable for storage
         val imageReference = reference.child("image").child(name_image)
+
+        var name  = ""
+        var email = ""
+
+        auth = FirebaseAuth.getInstance()
+        val ref = FirebaseDatabase.getInstance().getReference("Users")
+        ref.child(auth.uid!!)
+            .addValueEventListener(object: ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    //get user info
+                    name = "${snapshot.child("name").value}"
+                    email = "${snapshot.child("email").value}"
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+            })
+
         //if the selected image is not null, create the function to put it in a file using the image reference
         if (picked_image != null) {
             //taskSnapshot.metadata contains file metadata such as size, content-type, etc.
@@ -62,20 +85,22 @@ class PhotoSharingActivity : AppCompatActivity() {
                 //id the uri of the uploaded image is successful, sync the image uri with the variable
                 uploadImageReference.downloadUrl.addOnSuccessListener { uri ->
                     val dowloadUrl = uri.toString()
-                    //val currentuser_username = auth.currentUser!!.username.toString()
                     //variable to sync using the id of the comment_text
                     val user_comment = comment_text.text.toString()
                     //variable to sync it with the current date to specify the date of the share image and comment
                     val date = com.google.firebase.Timestamp.now()
+                    val name = name
+                    val email = email
                     //post hash to save all the data
                     val postHashMap = hashMapOf<String,Any>()
                     //submit the address of the image in post hash
                     postHashMap.put("imageUrl", dowloadUrl)
-                    //postHashMap.put("username",currentuser_username)
                     //post the post comment in post hash
                     postHashMap.put("comment",user_comment)
                     //submit the current photo and comment post state in post hash
                     postHashMap.put("date",date)
+                    postHashMap.put("name", name)
+                    postHashMap.put("email", email)
                     //if all is successful, create the post collection
                     database.collection("Post").add(postHashMap).addOnCompleteListener { task ->
                         if (task.isSuccessful) {

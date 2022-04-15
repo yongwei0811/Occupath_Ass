@@ -8,8 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.occupath.databinding.FragmentFeedBinding
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,8 +30,6 @@ class FeedFragment : Fragment() {
     private lateinit var feedAdapter : new_adapter
     //variable to use the firebase data feature
     private lateinit var database : FirebaseFirestore
-    //arraylist to show post using the recycler view property
-    var post_list = ArrayList<Post>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         //enable options menu in this fragment
@@ -81,13 +78,21 @@ class FeedFragment : Fragment() {
 
     private fun get_information() {
         database = FirebaseFirestore.getInstance()
-        database.collection("Post").orderBy("date",Query.Direction.DESCENDING).get().addOnSuccessListener { documents ->
-            for (document in documents){
-                val comment = document.get("comment") as String
-                val image = document.get("imageUrl") as String
-                feedArrayList.add(Post(comment, image))
+
+        database.collection("Post").orderBy("date",Query.Direction.DESCENDING).addSnapshotListener { snaphot, exception ->
+            if (snaphot != null) {
+                if(!snaphot.isEmpty) {
+                    val documents = snaphot.documents
+                    feedArrayList.clear()
+                    for (document in documents) {
+                        val comment = document.get("comment") as String
+                        val image = document.get("imageUrl") as String
+                        val name = document.get("name") as String
+                        feedArrayList.add(Post(comment, image, name))
+                    }
+                }
+                feedAdapter.notifyDataSetChanged()
             }
-            feedAdapter.notifyDataSetChanged()
         }
     }
 
