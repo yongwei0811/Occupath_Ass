@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/Documents/Degree/MobileApplicationDevelopment/Assignment/Occupath/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
+        <entry key="..\:/Users/User/Documents/Degree/MobileApplicationDevelopment/Assignment/Occupath/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
+        <entry key="..\:/Users/User/Documents/Degree/MobileApplicationDevelopment/Assignment/Occupath/app/src/main/res/layout/activity_main.xml" value="0.152" />
+        <entry key="..\:/Users/User/Documents/Degree/MobileApplicationDevelopment/Assignment/Occupath/app/src/main/res/layout/activity_new.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/User/Documents/Degree/MobileApplicationDevelopment/Assignment/Occupath/app/src/main/res/layout/activity_photo_sharing.xml" value="0.2" />
+        <entry key="..\:/Users/User/Documents/Degree/MobileApplicationDevelopment/Assignment/Occupath/app/src/main/res/layout/fragment_dashboard.xml" value="0.14583333333333334" />
+        <entry key="..\:/Users/User/Documents/Degree/MobileApplicationDevelopment/Assignment/Occupath/app/src/main/res/layout/fragment_feed.xml" value="0.4" />
+        <entry key="..\:/Users/User/Documents/Degree/MobileApplicationDevelopment/Assignment/Occupath/app/src/main/res/layout/recycle_row.xml" value="0.264" />
+        <entry key="..\:/Users/User/Documents/Degree/MobileApplicationDevelopment/Assignment/Occupath/app/src/main/res/menu/bottom_nav_menu.xml" value="0.152" />
+        <entry key="..\:/Users/User/Documents/Degree/MobileApplicationDevelopment/Assignment/Occupath/app/src/main/res/menu/menu_file.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidProjects/Occupath_Ass/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2375" />
         <entry key="..\:/AndroidProjects/Occupath_Ass/app/src/main/res/layout/activity_chat.xml" value="0.2078804347826087" />
         <entry key="..\:/AndroidProjects/Occupath_Ass/app/src/main/res/layout/activity_create_live_talk.xml" value="0.18795289855072464" />

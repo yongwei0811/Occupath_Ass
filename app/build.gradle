@@ -1,7 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'com.google.gms.google-services'
+    //set the gradle extension setting
+    id 'kotlin-android-extensions'
+    id 'com.google.gms.google-services'  // Google Services plugin
     id 'androidx.navigation.safeargs'
     id 'com.google.firebase.crashlytics'
 }
@@ -67,10 +69,24 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.0.1'
+    //implementation 'com.google.firebase:firebase-auth-ktx:21.0.3'
+    //implementation 'com.google.firebase:firebase-database-ktx:20.0.4'
+    implementation 'com.google.firebase:firebase-storage-ktx:20.0.1'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.1.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    //jitsi meet
+    //implementation ('org.jitsi.reach:jitsi-meet-sdk:3.+') { transitive = true }
+
+    //implementation 'com.google.firebase:firebase-firestore:24.1.0'
+    //to save photo and text
+    implementation 'com.google.firebase:firebase-storage:20.0.1'
+    //for photo transfer to gradle app file
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
     //jitsi meet
     implementation ('org.jitsi.react:jitsi-meet-sdk:3.+') { transitive = true }
