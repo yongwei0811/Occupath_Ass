@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-</selector>
+<!--    <item>-->
+<!--        <shape>-->
+<!--            <solid android:color="#33000000"/>-->
+<!--            <corners android:topRightRadius="10dp"-->
+<!--                android:topLeftRadius="10dp"/>-->
+<!--            <stroke android:width="1dp"-->
+<!--                android:color="#FFECA6"/>-->
+<!--        </shape>-->
+<!--    </item>-->
+    <item
+        android:top="4dp"
+        android:right="2dp"
+        android:left="2dp">
+        <shape>
+            <solid android:color="#FFECA6"/>
+            <corners android:topRightRadius="10dp"
+                android:topLeftRadius="10dp"/>
+        </shape>
+    </item>
+</layer-list>
