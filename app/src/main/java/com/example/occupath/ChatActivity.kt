@@ -1,41 +1,27 @@
 package com.example.occupath
 
-import android.app.Activity
-import android.app.AlertDialog
 import android.app.ProgressDialog
-import android.content.ActivityNotFoundException
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.occupath.adapter.MessageAdapter
 import com.example.occupath.databinding.ActivityChatBinding
-import com.example.occupath.databinding.AttachmentBinding
-import com.example.occupath.databinding.DeleteLayoutBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
-//import com.squareup.picasso.Picasso
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
-import androidx.core.app.ActivityCompat.startActivityForResult
-
-import android.provider.MediaStore
-
-
 
 
 class ChatActivity:AppCompatActivity() {

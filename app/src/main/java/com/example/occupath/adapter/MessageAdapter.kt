@@ -26,7 +26,6 @@ import com.google.firebase.storage.ktx.storage
 import java.util.*
 import kotlin.collections.ArrayList
 
-//import com.squareup.picasso.Picasso
 
 class MessageAdapter(
     var context: Context,

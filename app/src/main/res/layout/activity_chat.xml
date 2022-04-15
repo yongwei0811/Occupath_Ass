@@ -30,14 +30,15 @@
                 android:src="@drawable/ic_baseline_arrow_back_24"
                 app:tint="@color/black" />
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/profile01"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="centerCrop"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/user_icon" />
+                android:src="@drawable/user_icon"
+                app:shapeAppearanceOverlay="@style/styleRoundedCornersImage" />
+
 
 
             <LinearLayout
