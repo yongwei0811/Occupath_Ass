@@ -35,6 +35,11 @@
         android:name="com.example.occupath.UserFragment"
         android:label="fragment_user"
         tools:layout="@layout/fragment_user" />
+    <activity
+        android:id="@+id/chat"
+        android:name="com.example.occupath.Chat"
+        android:label="activity_chat"
+        tools:layout="@layout/activity_chat" />
     <fragment
         android:id="@+id/liveTalkRoomFragment"
         android:name="com.example.occupath.LiveTalkRoomFragment"
@@ -74,5 +79,13 @@
         <action
             android:id="@+id/action_createLiveTalkFragment_to_liveTalkFragment"
             app:destination="@id/liveTalkFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment2"
+        android:name="com.example.occupath.ChatFragment"
+        android:label="ChatFragment" >
+        <action
+            android:id="@+id/action_chatFragment2_to_chat"
+            app:destination="@id/chat" />
     </fragment>
 </navigation>

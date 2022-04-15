@@ -4,6 +4,10 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
@@ -12,7 +16,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Occupath">
         <activity
+            android:name=".LatestMessagesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".chatHist"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".lmyMessage" -->
+        <!-- android:exported="false" /> -->
+        <activity
             android:name=".PhotoSharingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChatActivity"
             android:exported="false" />
         <activity
             android:name=".LiveTalkRoomActivity"
@@ -27,10 +42,10 @@
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Chat"
             android:exported="false" />
         <activity
-            android:name=".Chat"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".OccupathActivity"

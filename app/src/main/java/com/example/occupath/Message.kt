@@ -1,4 +1,4 @@
-package com.example.occupath.ui
+package com.example.occupath
 
 class Message {
 

@@ -5,17 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Chat">
+    tools:context=".ChatActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F3E5A5"
+        android:background="@color/theme_color"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme">
 
         <LinearLayout
+            android:layout_margin="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -70,17 +71,23 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
+
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_below="@+id/toolbar"
         android:id="@+id/linear01"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:orientation="vertical"
+        app:stackFromEnd="true">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
-            android:visibility="visible"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="95dp"
+            android:visibility="visible"
+            app:stackFromEnd="true"
+            />
     </LinearLayout>
     <LinearLayout
         android:background="@drawable/bottom_shape"
@@ -95,15 +102,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardUseCompatPadding="true"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="10dp"
+            app:cardCornerRadius="1dp"
+            app:cardElevation="8dp"
             android:layout_weight="2"
             android:padding="10dp"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp">
             <LinearLayout
                 android:layout_weight="1"
-                android:padding="8dp"
+                android:padding="5dp"
                 android:baselineAligned="false"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -117,8 +124,9 @@
                     <EditText
                         android:id="@+id/messageBox"
                         android:gravity="start"
+                        android:singleLine="true"
                         android:hint="Type your message here"
-                        android:textColorHint="#19160D"
+                        android:textColorHint="@color/gray01"
                         android:paddingStart="5dp"
                         android:paddingEnd="1dp"
                         android:textSize="15sp"
@@ -139,18 +147,18 @@
                     app:srcCompat="@android:drawable/ic_menu_add"
                     app:tint="@color/black" />
 
-                <ImageView
-                    android:id="@+id/send"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:padding="9dp"
-                    android:backgroundTint="#F3E5A5"
-                    app:srcCompat="@android:drawable/ic_menu_send"
-                    app:tint="@color/black" />
-
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/send"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="3"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#F3E5A5"
+            app:srcCompat="@android:drawable/ic_menu_send"
+            app:tint="@color/black" />
     </LinearLayout>
 
 </RelativeLayout>
