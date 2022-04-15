@@ -33,7 +33,15 @@
                 android:layout_centerInParent="true"
                 android:textStyle="bold" />
 
-
+            <ImageButton
+                android:id="@+id/logoutBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_logout_white"
+                android:layout_alignParentEnd="true"
+                android:background="@android:color/transparent" />
 
         </RelativeLayout>
 
@@ -77,19 +85,52 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:orientation="horizontal"
             android:layout_below="@id/emailTv"
             android:gravity="center"
             android:layout_marginTop="8dp">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Account Status        "
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/accountStatusRTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not Verified"
+                android:visibility="gone"
+                android:textColor="@color/red01" />
+
+            <TextView
+                android:id="@+id/accountStatusGTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Verified"
+                android:visibility="gone"
+                android:textColor="@color/green01" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@id/emailTv"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
             <Button
                 android:id="@+id/profileEditBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Edit Profile"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/shape_button01"
+                android:text="Edit Profile"
                 android:textColor="@color/white" />
 
         </LinearLayout>

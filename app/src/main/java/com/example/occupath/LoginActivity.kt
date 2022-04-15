@@ -45,6 +45,10 @@ class LoginActivity : AppCompatActivity() {
         binding.loginBtn.setOnClickListener {
             validateData()
         }
+
+        binding.forgotTv.setOnClickListener {
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
+        }
     }
 
     private var email = ""
@@ -92,6 +96,7 @@ class LoginActivity : AppCompatActivity() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     progressDialog.dismiss()
                     startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                    //tartActivity(Intent(this@LoginActivity, MainActivity::class.java))
                     finish()
                 }
 

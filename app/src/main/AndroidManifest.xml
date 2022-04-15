@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.occupath">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
@@ -10,13 +13,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Occupath">
         <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileEditActivity"
+            android:exported="false" />
+        <activity
             android:name=".LiveTalkRoomActivity"
             android:exported="false" />
         <activity
             android:name=".CreateLiveTalkActivity"
             android:exported="false" />
         <activity
-            android:name=".Chat"
             android:name=".LoginActivity"
             android:exported="false" />
         <activity

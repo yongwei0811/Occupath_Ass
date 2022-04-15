@@ -1,9 +1,9 @@
 package com.example.occupath
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -39,7 +39,7 @@ class OccupathActivity : AppCompatActivity() {
                 .addListenerForSingleValueEvent(object : ValueEventListener {
 
                     override fun onDataChange(snapshot: DataSnapshot) {
-                        startActivity(Intent(this@OccupathActivity, FeedFragment::class.java))
+                        startActivity(Intent(this@OccupathActivity, UserFragment::class.java))
                         finish()
                     }
 

@@ -42,7 +42,6 @@
             android:background="@color/white"
             app:shapeAppearanceOverlay="@style/styleRoundedCornersImage" />
 
-
     </RelativeLayout>
 
     <RelativeLayout
@@ -71,6 +70,29 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="80dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email Address        "
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/emailTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="N/A"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
         <Button
             android:id="@+id/updateBtn"
             android:layout_width="match_parent"
@@ -79,7 +101,7 @@
             android:textColor="@color/white"
             android:text="Update"
             android:background="@drawable/shape_button01"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="100dp" />
 
     </RelativeLayout>
 

@@ -1,7 +1,6 @@
 //apply plugin: 'com.google.firebase.crashlytics'
 //apply plugin: 'com.google.gms.google-services'
 
-
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     repositories {

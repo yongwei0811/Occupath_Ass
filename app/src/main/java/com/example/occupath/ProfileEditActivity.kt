@@ -5,16 +5,18 @@ import android.app.ProgressDialog
 import android.content.ContentValues
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.provider.MediaStore.ACTION_IMAGE_CAPTURE
 import android.view.Menu
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.example.occupath.UserFragment
 import com.example.occupath.databinding.ActivityProfileEditBinding
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
@@ -25,6 +27,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 
 class ProfileEditActivity : AppCompatActivity() {
+
     //view binding
     private lateinit var binding: ActivityProfileEditBinding
 
@@ -50,7 +53,7 @@ class ProfileEditActivity : AppCompatActivity() {
         loadUserInfo()
 
         binding.backBtn.setOnClickListener {
-            onBackPressed()
+            startActivity(Intent(this, UserFragment::class.java))
         }
 
         binding.profileIv.setOnClickListener {
@@ -120,6 +123,7 @@ class ProfileEditActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 progressDialog.dismiss()
                 Toast.makeText(this, "Profile updated", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, UserFragment::class.java))
             }
             .addOnFailureListener { e->
                 progressDialog.dismiss()
@@ -135,9 +139,11 @@ class ProfileEditActivity : AppCompatActivity() {
                     //get user info
                     val name = "${snapshot.child("name").value}"
                     val profileImage = "${snapshot.child("profileImage").value}"
+                    val email = "${snapshot.child("email").value}"
 
                     //set data
                     binding.nameEt.setText(name)
+                    binding.emailTv.text = email
 
                     //set image
                     try {
@@ -183,9 +189,8 @@ class ProfileEditActivity : AppCompatActivity() {
 
         imageUri = contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
 
-        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        val intent = Intent(ACTION_IMAGE_CAPTURE)
         intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri)
-
         cameraActivityResultLauncher.launch(intent)
     }
 
@@ -196,8 +201,8 @@ class ProfileEditActivity : AppCompatActivity() {
     }
 
     private val cameraActivityResultLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult(), ActivityResultCallback<ActivityResult> { result ->
-            if(result.resultCode == RESULT_OK) {
+        ActivityResultContracts.StartActivityForResult(), ActivityResultCallback<ActivityResult> {result ->
+            if(result.resultCode == Activity.RESULT_OK) {
                 val data = result.data
                 //imageUri = data!!.data
 
@@ -211,7 +216,7 @@ class ProfileEditActivity : AppCompatActivity() {
 
     private val galleryActivityResultLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult(),
-        ActivityResultCallback<ActivityResult> { result ->
+        ActivityResultCallback<ActivityResult> {result ->
             if(result.resultCode == Activity.RESULT_OK) {
                 val data = result.data
                 imageUri = data!!.data
@@ -223,4 +228,5 @@ class ProfileEditActivity : AppCompatActivity() {
             }
         }
     )
+
 }
